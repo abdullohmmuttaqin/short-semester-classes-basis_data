@@ -8,6 +8,7 @@
 -- FILE: 01_ddl_dml_maju_berkah.sql
 -- BAGIAN 1: Data Definition Language (DDL)
 -- ==========================================================
+-- Link Github: https://github.com/abdullohmmuttaqin/short-semester-classes-basis_data
 
 -- 1. Persiapan Basis Data
 -- Menghapus database lama jika ada (untuk pengujian ulang)

@@ -8,6 +8,8 @@
 -- STUDI KASUS: UNUGHA Market System
 -- FILE: uas_unugha_market.sql
 -- ==========================================================
+-- Link Github: https://github.com/abdullohmmuttaqin/short-semester-classes-basis_data
+
 
 -- ----------------------------------------------------------
 -- 1. PERSIAPAN BASIS DATA (DEFENSIVE SETUP)
