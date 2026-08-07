@@ -10,7 +10,6 @@
 -- ==========================================================
 -- Link Github: https://github.com/abdullohmmuttaqin/short-semester-classes-basis_data
 
-
 -- ----------------------------------------------------------
 -- 1. PERSIAPAN BASIS DATA (DEFENSIVE SETUP)
 -- ----------------------------------------------------------
@@ -19,7 +18,7 @@ CREATE DATABASE unugha_market_db;
 USE unugha_market_db;
 
 -- ----------------------------------------------------------
--- 2. MEMBUAT STRUKTUR TABEL (DDL)
+-- 2. MEMBUAT STRUKTUR TABEL (DDL - SOAL 1)
 -- ----------------------------------------------------------
 
 -- Tabel Kategori
@@ -67,7 +66,14 @@ CREATE TABLE detail_transaksi (
 );
 
 -- ----------------------------------------------------------
--- 3. MENGISI DATA AWAL / SEEDING DATA (DML - INSERT)
+-- SOAL 2: MEMODIFIKASI STRUKTUR TABEL (ALTER)
+-- ----------------------------------------------------------
+-- Mengikuti Soal 2 No 1: Menambahkan/memastikan kolom no_telepon berada setelah email
+-- Catatan: Secara fisik sudah dibuat di atas, query ini opsional untuk dokumentasi tugas.
+-- ALTER TABLE pelanggan ADD no_telepon VARCHAR(15) AFTER email;
+
+-- ----------------------------------------------------------
+-- 3. MENGISI DATA AWAL / SEEDING DATA (DML - SOAL 3)
 -- ----------------------------------------------------------
 
 -- Seed Data Kategori
@@ -76,18 +82,20 @@ INSERT INTO kategori (nama_kategori) VALUES
 ('Pakaian'),
 ('Makanan & Minuman');
 
--- Seed Data Pelanggan
+-- Seed Data Pelanggan (Ditambah target pelanggan_lama untuk Soal 5)
 INSERT INTO pelanggan (nama_lengkap, email, no_telepon) VALUES 
 ('Abdullah Muttaqim', 'abdullah@unugha.ac.id', '081234567890'),
 ('Siti Rahmawati', 'siti.rahma@gmail.com', '085712345678'),
-('Budi Pratama', 'budi.p@yahoo.com', '089987654321');
+('Budi Pratama', 'budi.p@yahoo.com', '089987654321'),
+('Pelanggan Lama', 'pelanggan_lama@email.com', '082111222333'); -- <--- DATA TAMBAHAN SOAL 5
 
--- Seed Data Produk
+-- Seed Data Produk (Termasuk Laptop ASUS & Data Stok 2 untuk Soal 4)
 INSERT INTO produk (id_kategori, nama_produk, harga, stok) VALUES 
 (1, 'Laptop ASUS', 12500000.00, 15),
 (1, 'Mouse Wireless Logitech', 150000.00, 25),
 (2, 'Kaos Polos Cotton Combed', 75000.00, 50),
-(3, 'Kopi Susu Gula Aren', 18000.00, 100);
+(3, 'Kopi Susu Gula Aren', 18000.00, 100),
+(3, 'Roti Cokelat Expired', 15000.00, 2); -- <--- DATA TAMBAHAN STOK < 5 UNTUK SOAL 4
 
 -- Seed Data Transaksi
 INSERT INTO transaksi (id_pelanggan, tanggal_transaksi, total_bayar) VALUES 
@@ -103,7 +111,7 @@ INSERT INTO detail_transaksi (id_transaksi, id_produk, jumlah, subtotal) VALUES
 (3, 4, 2, 36000.00);
 
 -- ----------------------------------------------------------
--- Soal 4: Memperbarui Data (UPDATE)
+-- SOAL 4: MEMPERBARUI DATA (UPDATE)
 -- ----------------------------------------------------------
 
 -- 1. Update Spesifik: Mengubah harga 'Laptop ASUS' menjadi 13000000.00
@@ -111,13 +119,25 @@ UPDATE produk
 SET harga = 13000000.00 
 WHERE nama_produk = 'Laptop ASUS';
 
--- 2. Update Massal: Mengurangi harga produk sebesar 10% jika stok < 5
+-- 2. Update Massal: Mengurangi harga produk sebesar 10% jika stok < 5 (Roti Cokelat akan terpotong)
 UPDATE produk 
 SET harga = harga * 0.90 
 WHERE stok < 5;
 
 -- ----------------------------------------------------------
--- 4. ADVANCED SELECTION & BUSINESS INTELLIGENCE (UAS QUERIES)
+-- SOAL 5: MENGHAPUS DATA (DELETE)
+-- ----------------------------------------------------------
+
+-- 1. Hapus pelanggan berdasarkan email spesifik
+DELETE FROM pelanggan 
+WHERE email = 'pelanggan_lama@email.com';
+
+-- 2. Hapus semua produk yang stoknya habis (stok = 0)
+DELETE FROM produk 
+WHERE stok = 0;
+
+-- ----------------------------------------------------------
+-- SOAL EXTRA/UAS: ADVANCED SELECTION & BUSINESS INTELLIGENCE
 -- ----------------------------------------------------------
 
 -- Kueri 1: Menampilkan seluruh transaksi lengkap dengan Nama Pelanggan dan Total Bayar
