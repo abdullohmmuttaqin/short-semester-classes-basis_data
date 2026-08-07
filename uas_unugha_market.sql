@@ -84,7 +84,7 @@ INSERT INTO pelanggan (nama_lengkap, email, no_telepon) VALUES
 
 -- Seed Data Produk
 INSERT INTO produk (id_kategori, nama_produk, harga, stok) VALUES 
-(1, 'Laptop Asus Vivobook', 8500000.00, 10),
+(1, 'Laptop ASUS', 12500000.00, 15),
 (1, 'Mouse Wireless Logitech', 150000.00, 25),
 (2, 'Kaos Polos Cotton Combed', 75000.00, 50),
 (3, 'Kopi Susu Gula Aren', 18000.00, 100);
