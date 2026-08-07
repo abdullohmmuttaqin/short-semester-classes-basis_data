@@ -103,6 +103,20 @@ INSERT INTO detail_transaksi (id_transaksi, id_produk, jumlah, subtotal) VALUES
 (3, 4, 2, 36000.00);
 
 -- ----------------------------------------------------------
+-- Soal 4: Memperbarui Data (UPDATE)
+-- ----------------------------------------------------------
+
+-- 1. Update Spesifik: Mengubah harga 'Laptop ASUS' menjadi 13000000.00
+UPDATE produk 
+SET harga = 13000000.00 
+WHERE nama_produk = 'Laptop ASUS';
+
+-- 2. Update Massal: Mengurangi harga produk sebesar 10% jika stok < 5
+UPDATE produk 
+SET harga = harga * 0.90 
+WHERE stok < 5;
+
+-- ----------------------------------------------------------
 -- 4. ADVANCED SELECTION & BUSINESS INTELLIGENCE (UAS QUERIES)
 -- ----------------------------------------------------------
 
