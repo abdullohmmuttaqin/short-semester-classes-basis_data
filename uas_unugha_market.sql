@@ -1,4 +1,9 @@
 -- ==========================================================
+-- ABDULLAH MUHAMMAD MUTTAQIM
+-- INFORMATIKA 8 B 
+-- SEMESTER PENDEK BASIS DATA
+-- TRI ANGGORO, M.Kom.
+-- ==========================================================
 -- UJIAN AKHIR SEMESTER (UAS) BASIS DATA
 -- STUDI KASUS: UNUGHA Market System
 -- FILE: uas_unugha_market.sql
